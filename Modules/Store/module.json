@@ -1,0 +1,9 @@
+{
+    "name": "Store",
+    "alias": "store",
+    "description": "مدیریت فروشگاه و قهوه‌خانه ستاره شب",
+    "keywords": ["store", "pos", "inventory"],
+    "priority": 0,
+    "providers": ["Modules\\Store\\Providers\\StoreServiceProvider"],
+    "files": []
+}

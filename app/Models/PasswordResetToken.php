@@ -1,0 +1,14 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class PasswordResetToken extends Model
+{
+    protected $table = 'password_reset_tokens';
+    protected $primaryKey = 'mobile';
+    public $incrementing = false;
+    public $timestamps = false;
+    protected $fillable = ['mobile', 'token', 'ip_address', 'created_at'];
+}

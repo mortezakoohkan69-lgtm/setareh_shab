@@ -7,3 +7,55 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="search"],
+select,
+textarea {
+    border: 1px solid #cbd5e1 !important;
+    background-color: #ffffff !important;
+    border-radius: 0.5rem !important;
+    padding: 0.5rem 0.75rem !important;
+    outline: none !important;
+    transition: all 0.2s ease-in-out;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15) !important;
+}
+
+select {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    background-image: none !important;
+}
+
+.ts-wrapper { direction: rtl !important; text-align: right !important; }
+.ts-control {
+    direction: rtl !important;
+    text-align: right !important;
+    padding-left: 2.25rem !important;
+    padding-right: 0.75rem !important;
+    border-radius: 0.5rem !important;
+    border-color: #cbd5e1 !important;
+    min-height: 42px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+.ts-wrapper.single .ts-control::after { left: 10px !important; right: auto !important; margin-top: -3px !important; border-color: #64748b transparent transparent transparent !important; }
+.ts-wrapper.single.dropdown-active .ts-control::after { border-color: transparent transparent #64748b transparent !important; margin-top: -8px !important; }
+.ts-dropdown { direction: rtl !important; text-align: right !important; border-radius: 0.5rem !important; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important; z-index: 9999 !important; }
+.ts-dropdown .option { padding: 8px 12px !important; font-size: 0.875rem !important; }
+.ts-dropdown .active { background-color: #f1f5f9 !important; color: #0f172a !important; }
+.ts-wrapper .ts-control { direction: rtl !important; text-align: right !important; padding-right: 12px !important; padding-left: 36px !important; }
+.ts-wrapper.single .ts-control::after { right: auto !important; left: 12px !important; }
+.ts-wrapper .ts-control > input { text-align: right !important; direction: rtl !important; }
+.ts-wrapper .ts-control .item { text-align: right !important; direction: rtl !important; }

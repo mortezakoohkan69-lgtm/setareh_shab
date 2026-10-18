@@ -11,37 +11,37 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('jobs', function (Blueprint $table) {
-            $table->id();
-            $table->string('queue')->index();
-            $table->longText('payload');
-            $table->unsignedSmallInteger('attempts');
-            $table->unsignedInteger('reserved_at')->nullable();
-            $table->unsignedInteger('available_at');
-            $table->unsignedInteger('created_at');
+        Schema::create('jobs', function (Blueprint $table): void {
+            $table->id()->comment('شناسه یکتای کار صف');
+            $table->string('queue')->index()->comment('نام صف پردازش کار');
+            $table->longText('payload')->comment('داده کامل کار صف');
+            $table->unsignedSmallInteger('attempts')->comment('تعداد دفعات تلاش پردازش');
+            $table->unsignedInteger('reserved_at')->nullable()->comment('زمان رزرو کار به صورت Unix Timestamp');
+            $table->unsignedInteger('available_at')->comment('زمان آماده شدن کار به صورت Unix Timestamp');
+            $table->unsignedInteger('created_at')->comment('زمان ایجاد کار به صورت Unix Timestamp');
         });
 
-        Schema::create('job_batches', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('name');
-            $table->integer('total_jobs');
-            $table->integer('pending_jobs');
-            $table->integer('failed_jobs');
-            $table->longText('failed_job_ids');
-            $table->mediumText('options')->nullable();
-            $table->integer('cancelled_at')->nullable();
-            $table->integer('created_at');
-            $table->integer('finished_at')->nullable();
+        Schema::create('job_batches', function (Blueprint $table): void {
+            $table->string('id')->primary()->comment('شناسه یکتای دسته کارها');
+            $table->string('name')->comment('نام دسته کارها');
+            $table->integer('total_jobs')->comment('تعداد کل کارهای دسته');
+            $table->integer('pending_jobs')->comment('تعداد کارهای در انتظار');
+            $table->integer('failed_jobs')->comment('تعداد کارهای ناموفق');
+            $table->longText('failed_job_ids')->comment('شناسه کارهای ناموفق');
+            $table->mediumText('options')->nullable()->comment('تنظیمات دسته کارها');
+            $table->integer('cancelled_at')->nullable()->comment('زمان لغو دسته به صورت Unix Timestamp');
+            $table->integer('created_at')->comment('زمان ایجاد دسته به صورت Unix Timestamp');
+            $table->integer('finished_at')->nullable()->comment('زمان پایان دسته به صورت Unix Timestamp');
         });
 
-        Schema::create('failed_jobs', function (Blueprint $table) {
-            $table->id();
-            $table->string('uuid')->unique();
-            $table->string('connection');
-            $table->string('queue');
-            $table->longText('payload');
-            $table->longText('exception');
-            $table->timestamp('failed_at')->useCurrent();
+        Schema::create('failed_jobs', function (Blueprint $table): void {
+            $table->id()->comment('شناسه یکتای کار ناموفق');
+            $table->string('uuid')->unique()->comment('شناسه یکتای عمومی کار');
+            $table->string('connection')->comment('نام اتصال صف');
+            $table->string('queue')->comment('نام صف کار');
+            $table->longText('payload')->comment('داده کامل کار ناموفق');
+            $table->longText('exception')->comment('جزئیات خطای پردازش');
+            $table->timestamp('failed_at')->useCurrent()->comment('زمان شکست پردازش کار');
 
             $table->index(['connection', 'queue', 'failed_at']);
         });

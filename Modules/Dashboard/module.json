@@ -1,0 +1,12 @@
+{
+    "name": "Dashboard",
+    "alias": "dashboard",
+    "description": "مدیریت داشبورد پنل ادمین",
+    "keywords": [],
+    "priority": 0,
+    "active": true,
+    "providers": [
+        "Modules\\Dashboard\\Providers\\DashboardServiceProvider"
+    ],
+    "files": []
+}

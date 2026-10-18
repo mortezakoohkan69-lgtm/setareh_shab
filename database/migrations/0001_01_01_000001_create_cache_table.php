@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cache', function (Blueprint $table) {
-            $table->string('key')->primary();
-            $table->mediumText('value');
-            $table->bigInteger('expiration')->index();
+        Schema::create('cache', function (Blueprint $table): void {
+            $table->string('key')->primary()->comment('کلید یکتای داده کش');
+            $table->mediumText('value')->comment('مقدار ذخیره‌شده در کش');
+            $table->bigInteger('expiration')->index()->comment('زمان انقضای داده به صورت Unix Timestamp');
         });
 
-        Schema::create('cache_locks', function (Blueprint $table) {
-            $table->string('key')->primary();
-            $table->string('owner');
-            $table->bigInteger('expiration')->index();
+        Schema::create('cache_locks', function (Blueprint $table): void {
+            $table->string('key')->primary()->comment('کلید قفل کش');
+            $table->string('owner')->comment('شناسه مالک قفل');
+            $table->bigInteger('expiration')->index()->comment('زمان انقضای قفل به صورت Unix Timestamp');
         });
     }
 

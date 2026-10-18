@@ -1,0 +1,3 @@
+<!doctype html>
+<html lang="fa" dir="rtl"><head><meta charset="utf-8"><title>{{ $resource['title'] }}</title><style>body{font-family:Tahoma,sans-serif;padding:24px}table{width:100%;border-collapse:collapse}th,td{border:1px solid #ddd;padding:8px;text-align:right;font-size:12px}th{background:#eef2ff}@media print{.no-print{display:none}}</style></head>
+<body><button class="no-print" onclick="window.print()">چاپ / ذخیره PDF</button><h2>{{ $resource['title'] }}</h2><table><thead><tr>@foreach($resource['columns'] as $column)<th>{{ $column }}</th>@endforeach</tr></thead><tbody>@foreach($rows as $row)<tr>@foreach($resource['columns'] as $column)<td>{{ $row->{$column} ?? '-' }}</td>@endforeach</tr>@endforeach</tbody></table></body></html>
